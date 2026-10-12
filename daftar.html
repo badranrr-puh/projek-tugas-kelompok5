@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran - KampusEvent</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="navbar">
+        <a href="index.html" class="logo">Kampus<span>Event</span></a>
+        <nav>
+            <a href="index.html">Beranda</a>
+            <a href="kegiatan.html">Kegiatan</a>
+            <a href="daftar.html" class="active">Pendaftaran</a>
+        </nav>
+    </header>
+
+    <main class="page-container">
+        <section class="page-heading">
+            <p class="eyebrow">GABUNG SEKARANG</p>
+            <h1>Formulir Pendaftaran</h1>
+            <p>Isi data diri dengan benar untuk mengikuti kegiatan.</p>
+        </section>
+
+        <section class="form-card">
+            <form id="registration-form">
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap</label>
+                    <input
+                        type="text"
+                        id="nama"
+                        name="nama"
+                        placeholder="Masukkan nama lengkap"
+                        required
+                        minlength="3"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="nim">NIM</label>
+                    <input
+                        type="text"
+                        id="nim"
+                        name="nim"
+                        placeholder="Masukkan NIM"
+                        required
+                        pattern="[0-9]+"
+                        title="NIM hanya boleh berisi angka"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="nama@email.com"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="pilihan-kegiatan">Pilih Kegiatan</label>
+                    <select
+                        id="pilihan-kegiatan"
+                        name="kegiatan"
+                        required
+                    >
+                        <option value="">-- Pilih Kegiatan --</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-full">
+                    Kirim Pendaftaran
+                </button>
+
+                <p id="registration-message" class="form-message"
+                   role="status" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <section class="registration-history">
+            <h2>Pendaftaran di Browser Ini</h2>
+            <p class="muted">
+                Daftar ini hanya menampilkan data yang tersimpan
+                pada browser perangkat ini.
+            </p>
+            <div id="registration-list"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 KampusEvent. Website Informasi Kegiatan Kampus.</p>
+    </footer>
+</body>
+</html>

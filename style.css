@@ -140,14 +140,179 @@
 /* =========================
    10. FORMULIR
 ========================= */
+.form-card {
+    max-width: 650px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.filter-panel input:focus,
+.filter-panel select:focus {
+    border-color: var(--primary);
+}
+
+.form-message {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.form-message.success {
+    color: #087443;
+}
+
+.form-message.error {
+    color: #b42318;
+}
+
+.registration-history {
+    max-width: 800px;
+    margin-top: 40px;
+}
+
+.registration-history h2 {
+    margin-bottom: 8px;
+}
+
+.muted {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.registration-item {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 12px;
+    overflow-wrap: anywhere;
+}
+
+.registration-item p {
+    font-size: 14px;
+    color: var(--muted);
+}
 
 
 /* =========================
    11. FOOTER
 ========================= */
+footer {
+    margin-top: 60px;
+    padding: 25px;
+    background: white;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+}
 
 
 /* =========================
    12. RESPONSIVE
 ========================= */
+@media (max-width: 850px) {
+    .event-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hero,
+    .section,
+    .page-container,
+    .info-banner {
+        width: 90%;
+    }
+
+    .hero {
+        padding: 35px;
+    }
+
+    .hero-icon {
+        font-size: 75px;
+    }
+}
+
+@media (max-width: 560px) {
+    .navbar {
+        padding: 15px 5%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar nav {
+        gap: 18px;
+    }
+
+    .hero {
+        margin-top: 20px;
+        padding: 28px 22px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-icon {
+        display: none;
+    }
+
+    .section,
+    .page-container,
+    .info-banner {
+        width: 90%;
+        margin-top: 30px;
+    }
+
+    .event-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+    }
+
+    .section-heading h2 {
+        font-size: 23px;
+    }
+
+    .info-banner {
+        padding: 25px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filter-panel {
+        flex-direction: column;
+    }
+
+    .filter-panel select {
+        max-width: none;
+    }
+
+    .detail-card,
+    .form-card {
+        padding: 22px;
+    }
+
+    .detail-card h1 {
+        font-size: 25px;
+    }
+
+    .detail-meta {
+        grid-template-columns: 1fr;
+    }
+}
 
