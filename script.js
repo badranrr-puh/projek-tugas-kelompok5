@@ -152,18 +152,159 @@ if (featuredContainer) {
 /* ===================================
    4. DAFTAR DAN FILTER KEGIATAN
 =================================== */
+const allEventsContainer =
+    document.getElementById("all-events");
 
+const searchInput =
+    document.getElementById("search-event");
+
+const categoryFilter =
+    document.getElementById("filter-category");
+
+const eventCount =
+    document.getElementById("event-count");
+
+function renderEvents() {
+    if (!allEventsContainer) return;
+
+    const keyword = searchInput.value
+        .trim()
+        .toLowerCase();
+
+    const category = categoryFilter.value;
+
+    const filteredEvents = events.filter(event => {
+        const matchesKeyword =
+            event.title.toLowerCase().includes(keyword) ||
+            event.description.toLowerCase().includes(keyword);
+
+        const matchesCategory =
+            category === "Semua" ||
+            event.category === category;
+
+        return matchesKeyword && matchesCategory;
+    });
+
+    eventCount.textContent =
+        `Menampilkan ${filteredEvents.length} kegiatan`;
+
+    if (filteredEvents.length === 0) {
+        allEventsContainer.innerHTML = `
+            <div class="empty-state">
+                <h3>Kegiatan tidak ditemukan</h3>
+                <p>Coba gunakan kata kunci atau kategori lain.</p>
+            </div>
+        `;
+        return;
+    }
+
+    allEventsContainer.innerHTML =
+        filteredEvents.map(eventCard).join("");
+}
+
+if (allEventsContainer) {
+    searchInput.addEventListener("input", renderEvents);
+    categoryFilter.addEventListener("change", renderEvents);
+
+    renderEvents();
+}
 
 /* ===================================
    5. DETAIL KEGIATAN
 =================================== */
+const detailContainer =
+    document.getElementById("event-detail");
 
+if (detailContainer) {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+    const event = getEventById(id);
 
+    if (event) {
+        detailContainer.innerHTML = `
+            <div class="detail-cover" aria-hidden="true">
+                ${event.icon}
+            </div>
+
+            <span class="category">
+                ${event.category}
+            </span>
+
+            <h1>${event.title}</h1>
+
+            <p class="detail-description">
+                ${event.description}
+            </p>
+
+            <div class="detail-meta">
+                <div class="meta-item">
+                    <strong>📅 Tanggal</strong>
+                    ${formatDate(event.date)}
+                </div>
+
+                <div class="meta-item">
+                    <strong>🕒 Waktu</strong>
+                    ${event.time}
+                </div>
+
+                <div class="meta-item">
+                    <strong>📍 Lokasi</strong>
+                    ${event.location}
+                </div>
+
+                <div class="meta-item">
+                    <strong>🏷️ Kategori</strong>
+                    ${event.category}
+                </div>
+            </div>
+
+            <a
+                href="daftar.html?id=${event.id}"
+                class="btn"
+            >
+                Daftar Kegiatan
+            </a>
+        `;
+
+        document.title = event.title + " - KampusEvent";
+    } else {
+        detailContainer.innerHTML = `
+            <div class="empty-state">
+                <h2>Kegiatan tidak ditemukan</h2>
+                <p>Silakan pilih kegiatan dari daftar.</p>
+                <br>
+                <a href="kegiatan.html" class="btn">
+                    Kembali ke Kegiatan
+                </a>
+            </div>
+        `;
+    }
+}
 
 /* ===================================
    6. PENYIMPANAN PENDAFTARAN
 =================================== */
+function getRegistrations() {
+    try {
+        const data = localStorage.getItem("kampusEventRegistrations");
+        const parsed = data ? JSON.parse(data) : [];
 
+        return Array.isArray(parsed) ? parsed : [];
+    } catch (error) {
+        return [];
+    }
+}
+
+function saveRegistration(registration) {
+    const registrations = getRegistrations();
+
+    registrations.push(registration);
+
+    localStorage.setItem(
+        "kampusEventRegistrations",
+        JSON.stringify(registrations)
+    );
+}
 
 /* ===================================
    7. PILIHAN KEGIATAN DI FORM
