@@ -452,6 +452,9 @@ function renderRegistrations() {
         const email = document.createElement("p");
         email.textContent = "Email: " + registration.email;
 
+        const prodi = document.createElement("p");
+        prodi.textContent = "Program Studi: " + registration.prodi;
+
         item.append(name, eventName, nim, email, prodi);
         list.appendChild(item);
     });
