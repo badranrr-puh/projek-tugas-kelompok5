@@ -84,9 +84,6 @@ if (registrationForm) {
         const eventId = document.getElementById("pilihan-kegiatan")
             .value;
 
-        const prodi = document.getElementById("prodi")
-            .value.trim();
-
         const selectedEvent = getEventById(eventId);
 
         if (!selectedEvent) {
@@ -116,7 +113,6 @@ if (registrationForm) {
             nama: nama,
             nim: nim,
             email: email,
-            prodi: prodi,
             eventId: selectedEvent.id,
             eventTitle: selectedEvent.title,
             registeredAt: new Date().toISOString()
@@ -179,9 +175,6 @@ function renderRegistrations() {
 
         const email = document.createElement("p");
         email.textContent = "Email: " + registration.email;
-
-        const prodi = document.createElement("p");
-        prodi.textContent = "Program Studi: " + registration.prodi;
 
         item.append(name, eventName, nim, email, prodi);
         list.appendChild(item);
