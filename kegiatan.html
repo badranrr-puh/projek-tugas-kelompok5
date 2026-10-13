@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail Kegiatan - KampusEvent</title>
+    <title>Daftar Kegiatan - KampusEvent</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
@@ -19,12 +18,33 @@
     </header>
 
     <main class="page-container">
-        <a href="kegiatan.html" class="text-link">
-            ← Kembali ke Daftar Kegiatan
-        </a>
+        <section class="page-heading">
+            <p class="eyebrow">AGENDA KAMPUS</p>
+            <h1>Jelajahi Kegiatan</h1>
+            <p>Temukan kegiatan yang sesuai dengan minatmu.</p>
+        </section>
 
-        <section id="event-detail" class="detail-card">
-            <!-- Detail kegiatan diisi oleh JavaScript -->
+        <section class="filter-panel">
+            <input
+                type="search"
+                id="search-event"
+                placeholder="Cari nama kegiatan..."
+                aria-label="Cari nama kegiatan"
+            >
+
+            <select id="filter-category" aria-label="Filter kategori">
+                <option value="Semua">Semua Kategori</option>
+                <option value="Seminar">Seminar</option>
+                <option value="Workshop">Workshop</option>
+                <option value="Lomba">Lomba</option>
+                <option value="Organisasi">Organisasi</option>
+            </select>
+        </section>
+
+        <p id="event-count" class="result-count"></p>
+
+        <section class="event-grid" id="all-events">
+            <!-- Daftar kegiatan diisi oleh JavaScript -->
         </section>
     </main>
 
