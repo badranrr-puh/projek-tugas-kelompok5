@@ -455,7 +455,7 @@ function renderRegistrations() {
         email.textContent = "Email: " + registration.email;
 
 
-        item.append(name, eventName, nim, email, prodi);
+        item.append(name, eventName, nim, email);
         list.appendChild(item);
     });
 }
