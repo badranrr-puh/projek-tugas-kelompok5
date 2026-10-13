@@ -209,6 +209,7 @@ if (allEventsContainer) {
     renderEvents();
 }
 
+
 /* ===================================
    5. DETAIL KEGIATAN
 =================================== */
@@ -329,6 +330,7 @@ if (eventSelect) {
         eventSelect.value = selectedId;
     }
 }
+
 
 
 /* ===================================
