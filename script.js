@@ -176,7 +176,7 @@ function renderRegistrations() {
         const email = document.createElement("p");
         email.textContent = "Email: " + registration.email;
 
-        item.append(name, eventName, nim, email,);
+        item.append(name, eventName, nim, email);
         list.appendChild(item);
     });
 }
