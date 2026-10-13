@@ -310,6 +310,7 @@ function saveRegistration(registration) {
 /* ===================================
    7. PILIHAN KEGIATAN DI FORM
 =================================== */
+
 const eventSelect =
     document.getElementById("pilihan-kegiatan");
 
@@ -332,10 +333,10 @@ if (eventSelect) {
 }
 
 
-
 /* ===================================
    8. PROSES FORM PENDAFTARAN
 =================================== */
+
 const registrationForm =
     document.getElementById("registration-form");
 
@@ -416,9 +417,11 @@ if (registrationForm) {
     });
 }
 
+
 /* ===================================
    9. RIWAYAT PENDAFTARAN
 =================================== */
+
 function renderRegistrations() {
     const list = document.getElementById("registration-list");
 
