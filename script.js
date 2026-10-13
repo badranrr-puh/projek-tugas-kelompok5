@@ -54,6 +54,7 @@ if (eventSelect) {
 }
 
 
+
 /* ===================================
    8. PROSES FORM PENDAFTARAN
 =================================== */
@@ -82,6 +83,9 @@ if (registrationForm) {
 
         const eventId = document.getElementById("pilihan-kegiatan")
             .value;
+
+        const prodi = document.getElementById("prodi")
+            .value.trim();
 
         const selectedEvent = getEventById(eventId);
 
@@ -112,6 +116,7 @@ if (registrationForm) {
             nama: nama,
             nim: nim,
             email: email,
+            prodi: prodi,
             eventId: selectedEvent.id,
             eventTitle: selectedEvent.title,
             registeredAt: new Date().toISOString()
